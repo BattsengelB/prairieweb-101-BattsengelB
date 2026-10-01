@@ -1,0 +1,29 @@
+/* Basic mobile-first styling */
+body {
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+/* BEM example */
+.header__title {
+    font-weight: bold;
+}
+
+.trail-card {
+    background-color: #19660b;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+/* Tablet breakpoint */
+@media (min-width: 768px) {
+    .trail-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Desktop breakpoint */
+@media (min-width: 1024px) {
+    .trail-card {
+        padding: 2rem;
+    }
+}
