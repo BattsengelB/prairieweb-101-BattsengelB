@@ -1,15 +1,15 @@
-/* Basic mobile-first styling */
+/* Basic styling */
 body {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
-/* BEM example */
+/* BEM integration */
 .header__title {
     font-weight: bold;
 }
 
 .trail-card {
-    background-color: #19660b;
+    background-color: #13420b;
     padding: 1rem;
     border-radius: 6px;
 }
