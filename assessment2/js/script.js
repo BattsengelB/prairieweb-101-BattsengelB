@@ -16,12 +16,12 @@ function debounce(fn, delay = 300) {
    ------------------------------------------------------------ */
 function sanitize(str) {
     return str.replace(/[<>&"'`]/g, (c) => ({
-        '<': '&lt;',
-        '>': '&gt;',
-        '&': '&amp;',
-        '"': '&quot;',
-        "'": '&#39;',
-        '`': '&#96;'
+        '<': '&#60;',   // <
+        '>': '&#62;',   // >
+        '&': '&#38;',   // &
+        '"': '&#34;',   // "
+        "'": '&#39;',   // '
+        '`': '&#96;'    // `
     }[c]));
 }
 
@@ -49,6 +49,14 @@ function validateForm() {
     const message = sanitize(form.message.value.trim());
 
     // Email regex pattern
+    /* Email regex pattern explanation:
+        // ^           → start of string
+        // [^\s@]+     → one or more characters that are NOT whitespace or @
+        // @           → literal @ symbol
+        // [^\s@]+     → one or more characters that are NOT whitespace or @
+        // \.          → literal dot
+        // [^\s@]+     → one or more characters that are NOT whitespace or @
+        //   $           → end of string                                     */
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     // Name validation
