@@ -1,13 +1,20 @@
-/* Basic styling */
+/* ------------------------------------------------------------
+   Global styling
+   ------------------------------------------------------------ */
 body {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
-/* BEM integration */
+/* ------------------------------------------------------------
+   BEM integration
+   ------------------------------------------------------------ */
 .header__title {
     font-weight: bold;
 }
 
+/* ------------------------------------------------------------
+   Trail card styling (Assessment 1)
+   ------------------------------------------------------------ */
 .trail-card {
     background-color: #13420b;
     padding: 1rem;
@@ -26,4 +33,29 @@ body {
     .trail-card {
         padding: 2rem;
     }
+}
+
+/* ------------------------------------------------------------
+   Form styling (Assessment 2)
+   ------------------------------------------------------------ */
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 15px;
+}
+
+/* Inputs, selects, textareas */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+/* Error message region */
+#errors {
+    color: red;
+    margin-bottom: 10px;
 }

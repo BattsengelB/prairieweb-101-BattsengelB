@@ -2,6 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+
+    <!-- CSP for security -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'; style-src 'self' https://cdn.jsdelivr.net; img-src 'self';">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kananaskis Trails</title>
 
@@ -71,30 +76,43 @@
             </div>
         </section>
 
-        <!-- Contact -->
-        <section id="contact" class="mt-4">
-            <h2>Contact Us</h2>
-            <p>Send us your favourite Kananaskis trail suggestions that you would like to see added to the website!</p>
+    <!-- Contact / Assessment 2 Enquiry Form -->
+    <section id="contact" class="mt-4">
+        <h2>Trail Enquiry Form</h2>
+        <p>Send us your favourite Kananaskis trail suggestions or ask a question about beginner-friendly trails!</p>
 
-            <form>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input id="name" type="text" class="form-control">
-                </div>
+        <!-- ARIA live region for errors -->
+        <div id="errors" aria-live="polite" class="text-danger mb-3"></div>
 
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input id="email" type="email" class="form-control">
-                </div>
+        <form id="trailForm" novalidate>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name (required)</label>
+                <input id="name" name="name" type="text" class="form-control" required>
+            </div>
 
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea id="message" class="form-control" rows="4"></textarea>
-                </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email (required)</label>
+                <input id="email" name="email" type="email" class="form-control" required>
+            </div>
 
-                <button class="btn btn-success">Send</button>
-            </form>
-        </section>
+            <div class="mb-3">
+                <label for="length" class="form-label">Trail Length</label>
+                <select id="length" name="length" class="form-select">
+                    <option value="short">Short (1–3 km)</option>
+                    <option value="medium">Medium (4–7 km)</option>
+                    <option value="long">Long (8+ km)</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label">Message (max 500 characters)</label>
+                <textarea id="message" name="message" class="form-control" rows="4" maxlength="500" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Send Enquiry</button>
+        </form>
+        <script type="module" src="js/jsscript.js"></script>
+    </section>
 
         <!-- FAQ -->
         <section id="faq" class="mt-4">
