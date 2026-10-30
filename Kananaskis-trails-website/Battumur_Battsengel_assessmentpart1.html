@@ -3,9 +3,31 @@
     <head>
         <meta charset="UTF-8">
 
-    <!-- CSP for security -->
-    <meta http-equiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self'; style-src 'self' https://cdn.jsdelivr.net; img-src 'self';">
+        <!-- SEO & AIO Metadata -->
+            <meta name="description" content="Explore Kananaskis Trails with maps, live weather, and beginner-friendly hiking information.">
+            <meta name="author" content="Student Project - Battumur Battsengel">
+            <meta name="robots" content="index,follow">
+
+        <!-- Open Graph Metadata -->
+            <meta property="og:title" content="Kananaskis Trails – Interactive Map & Live Weather">
+            <meta property="og:description" content="View trail maps, live weather, and beginner-friendly hiking routes in Kananaskis Country.">
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="https://example.com/">
+            <meta property="og:image" content="images/hero-trail.jpg">
+
+        <!-- Privacy Referrer Policy -->
+            <meta name="referrer" content="strict-origin-when-cross-origin">
+
+        <!-- CSP for security -->
+        <meta http-equiv="Content-Security-Policy"
+            content="
+            default-src 'self';
+            img-src 'self' data:;
+            style-src 'self' https://cdn.jsdelivr.net;
+            script-src 'self';
+            connect-src 'self' https://api.open-meteo.com;
+            frame-src https://www.google.com;
+            ">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kananaskis Trails</title>
@@ -42,6 +64,18 @@
     <!-- Main content -->
     <main class="container my-4" role="main">
 
+        <!-- Hero Image -->
+            <picture class="hero mb-4">
+            <source srcset="images/hero-trail.avif" type="image/avif">
+            <source srcset="images/hero-trail.webp" type="image/webp">
+            <img src="images/hero-trail.jpg"
+            alt="Scenic beginner-friendly trail in Alberta"
+            loading="lazy"
+            width="1200"
+            height="600"
+            class="img-fluid rounded">
+            </picture>
+
         <!-- About -->
         <section id="about">
             <h2>About Kananaskis Trails</h2>
@@ -73,6 +107,33 @@
                         <p>A challenging trail with rewarding views of the surrounding mountains.</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Trailhead Map (Assessment 3) -->
+            <section id="map" class="mt-5">
+            <h2>Kananaskis Falls Trailhead Map</h2>
+            <p>View the exact trailhead location for the Kananaskis Falls trail.</p>
+            <div class="embed-wrapper">
+                <iframe
+                title="Kananaskis Falls Trailhead Map"
+                loading="lazy"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2520.12345!2d-115.13840!3d50.88790!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5370b2c0f0e0e0e0%3A0x0000000000000000!2sKananaskis%20Falls%20Trail!5e0!3m2!1sen!2sca!4v0000000000000"
+                referrerpolicy="no-referrer-when-downgrade"
+                sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups"
+                style="border:0;"
+                allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- Live Weather (Assessment 3) -->
+        <section id="weather" class="mt-4">
+            <h2>Live Weather at Kananaskis Falls</h2>
+            <p>Real-time weather conditions for the Kananaskis Falls trailhead.</p>
+
+            <div id="weather-status" class="weather-status">
+                Loading live weather data…
             </div>
         </section>
 
@@ -141,5 +202,6 @@
         <p class="m-0">&copy; 2026 Kananaskis Trails (Student Project)</p>
     </footer>
 
+    <script type="module" src="js/assessment3.js"></script>
 </body>
 </html>
