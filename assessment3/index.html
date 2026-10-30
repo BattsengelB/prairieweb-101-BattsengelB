@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Explore Alberta Trails • Interactive Map</title>
+
+    <meta name="description"
+          content="Find real-time weather and route info for beginner-friendly Alberta trails.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Basic SEO & AIO metadata -->
+    <meta name="author" content="Student Project - Kananaskis Trails">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="Explore Alberta Trails • Interactive Map">
+    <meta property="og:description"
+          content="View trailhead maps and live weather for beginner-friendly Alberta trails.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://example.com/">
+    <meta property="og:image" content="images/hero-trail.webp">
+
+    <!-- Referrer policy for privacy -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <link rel="stylesheet" href="assess3.css">
+</head>
+
+<body>
+
+<main id="main">
+    <h1>Trailhead Map & Live Weather</h1>
+
+    <!-- Hero image with WebP + JPEG fallback -->
+    <picture class="hero">
+        <source srcset="images/hero-trail.avif" type="image/avif">
+        <source srcset="images/hero-trail.webp" type="image/webp">
+        <img src="images/hero-trail.jpg"
+             alt="Scenic beginner-friendly trail in Alberta"
+             loading="lazy"
+             width="1200"
+             height="600">
+    </picture>
+    
+
+    <!-- Embedded map (privacy-enhanced, lazy-loaded, responsive) -->
+    <section class="embed-section">
+        <h2>Trailhead Location Map</h2>
+        <p>View the approximate trailhead location for a beginner-friendly Alberta trail.</p>
+
+        <div class="embed-wrapper">
+            <iframe
+                title="Kananaskis Falls Trailhead Map"
+                loading="lazy"
+                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2520.12345!2d-115.13840!3d50.88790!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5370b2c0f0e0e0e0%3A0x0000000000000000!2sKananaskis%20Falls%20Trail!5e0!3m2!1sen!2sca!4v0000000000000"
+                referrerpolicy="no-referrer-when-downgrade"
+                sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-popups"
+                style="border:0;"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Live weather section -->
+    <section class="live-data">
+        <h2>Live Trail Weather</h2>
+        <p>Real-time weather for a sample trailhead near Kananaskis, Alberta.</p>
+
+        <div id="weather-status" class="weather-status">
+            Loading live weather data…
+        </div>
+    </section>
+</main>
+
+<script type="module" src="java.js"></script>
+
+</body>
+</html>
