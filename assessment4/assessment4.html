@@ -1,0 +1,152 @@
+<!-- index.html  —  intentionally flawed for Part 4 assessment --> 
+        
+        <!DOCTYPE html>                             <!-- 1) no lang --> 
+        
+        <html> 
+        
+        <head> 
+        
+          <meta charset="utf-8"> 
+        
+          <title>Trails</title>                     <!-- 2) poor SEO --> 
+        
+          <meta name=viewport content="width=device-width"> <!-- 3) missing quotes --> 
+        
+          <meta http-equiv="Cache-Control" content="max-age=31536000"> <!-- 4) forces stale cache --> 
+        
+          <style>
+        /* 5) huge unused framework dump (bloats 150 kB) */
+        @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+        body{margin:0} body{margin:8px}        /* 6) conflicting */
+        .hero{background:url('img/hero.png');height:50vh}  /* 7) 1 MB PNG, no alt formats */
+        img{max-width:100%} 
+        
+           
+        
+          .background {
+        background-image: url('desktop.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100%; 
+        
+          } 
+        
+          
+        
+          @media (min-width: 768px) {
+        .background {
+          background-image: url('mobile.jpg');
+        } 
+        
+          } 
+        
+        </style> 
+        
+         
+        
+          <!-- 8) outdated jQuery over HTTP, blocks rendering --> 
+        
+          <script src="http://code.jquery.com/jquery-2.0.0.min.js"></script> 
+        
+         
+        
+          <!-- 9) old plugin that sets insecure cookie --> 
+        
+          <script id="sliderPlugin">
+        (function(){
+          $('.slider').each(function(){
+            document.cookie = "lastSlide=1"; // SameSite?? insecure??
+          });
+        })(); 
+        
+          </script> 
+        
+         
+        
+          <!-- 10) main script with many issues --> 
+        
+          <script id="mainScript">
+        /* global leakage, bad practices, no error handling */
+        weatherData = {};            // 10.1 global
+        // 10.2 insecure http fetch, no error handling, unoptimised DOM write
+        fetch('http://api.open-meteo.com/v1/forecast?lat=51&lon=115&current_weather=true')
+          .then(r => r.json())
+          .then(d => {
+            weatherData = d
+            document.querySelector('.hero').innerText =
+              "Temp: " + d.current_weather.temperature;  // wipes markup 
+        
+        var dewpoint= document.querySelector('.hero').innerText + 1;
+          });
+        // 10.3 form validation – minimal, insecure cookie
+        function validate(){ return true }               // unused
+        document.addEventListener('DOMContentLoaded', ()=>{
+          const f = document.forms[0];
+          f.addEventListener('submit', e=>{
+            e.preventDefault();
+            // store contact flag, but cookie not secure
+            document.cookie = "contact=true";
+            console.log(new FormData(f)); // unreadable
+          });
+        });
+        // 10.4 infinite logging (never cleared)
+        setInterval(()=>console.log(' still running'), 1000);
+        // 10.5 unused helper
+        function oldHelper(x){ return x*2; } 
+        
+         
+        
+          </script> 
+        
+        </head> 
+        
+         
+        
+        <body> 
+        
+        <header> 
+        
+          <h1><img src="img/logo.png"></h1>      <!-- 11) missing alt, PNG not optimised --> 
+        
+        </headerscript src="www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> 
+        
+        <main> 
+        
+          <section class="hero slider" role="banner">
+        <h2>Explore Alberta Trails</h2> 
+        
+          </section> 
+        
+         
+        
+          <!-- 12) invalid structure: form inside UL --> 
+        
+          <ul>
+        <form id="trailForm">
+          <li><label>Name<input name="name"></label></lili><label>Email<input name="email"></labelli>
+          <li><button type="submit">Send</button></li>
+        </form> 
+        
+          </ul> 
+        
+         
+        
+          <!-- 13) tracking-heavy embed, no privacy opts --> 
+        
+          <iframe
+         src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+         width="600" height="338"></iframemain> 
+        
+         
+        
+        <script src="www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"script> 
+         
+        
+        <footer role="contentinfo"> 
+        
+          <p>&copy; 2025 Explore Alberta Trails</p> 
+        
+        </footer> 
+        
+        </bodyhtml>
